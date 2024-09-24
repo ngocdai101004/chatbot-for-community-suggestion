@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 from langchain.docstore.document import Document
-from retriever import Retriever
+from src.ingest.retriever import Retriever
 
 
 def format_row(row):

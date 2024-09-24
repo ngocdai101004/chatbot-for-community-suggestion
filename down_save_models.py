@@ -32,8 +32,8 @@ embedding_name = "BAAI/bge-m3"
 reranker_name = "BAAI/bge-reranker-base"
 llm_name = "Qwen/Qwen2-1.5B-Chat"
 bart_name = "facebook/bart-large-mnli"
-# down_save_automodel(name=embedding_name, dir=models_dir)
+down_save_automodel(name=embedding_name, dir=models_dir)
 # down_save_automodel_for_seq_classification(
 # name=reranker_name, dir=models_dir)
-down_save_automodel_for_llm(name=llm_name, dir=models_dir)
 # down_save_automodel_for_seq_classification(name=bart_name, dir=models_dir)
+# down_save_automodel_for_llm(name=llm_name, dir=models_dir)

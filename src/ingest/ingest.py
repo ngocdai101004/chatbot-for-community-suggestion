@@ -1,9 +1,9 @@
 import requests
 import pandas as pd
 from langchain.docstore.document import Document
-from retriever import Retriever
-from documents import get_documents
-from global_setting import FILE_PATHS, EMBEDDING_PATH, RERANKER_PATH
+from src.ingest.retriever import Retriever
+from src.ingest.documents import get_documents
+from src.global_setting import FILE_PATHS, EMBEDDING_PATH, RERANKER_PATH
 
 
 def data_retriever():

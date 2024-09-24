@@ -12,3 +12,6 @@ Here is the user question: {question}
 The following documents are relevant to the question: {context}
 Answer:
 """
+
+CANDIDATE_LABELS = [
+    "A request for suggestion or expresses a desire to join a group or community, or presents descriptions about interesting fields"]
