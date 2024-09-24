@@ -3,10 +3,11 @@ from src.global_setting import BART_PATH
 from src.prompts import CANDIDATE_LABELS
 
 
-def get_query_classifier():
+def get_query_classifier(device='cpu'):
     classifier = pipeline("zero-shot-classification",
                           model=BART_PATH,
-                          tokenizer=BART_PATH,)
+                          tokenizer=BART_PATH,
+                          device_map=device,)
     return classifier
 
 

@@ -2,7 +2,6 @@
 from transformers import pipeline
 from langchain_huggingface.llms import HuggingFacePipeline
 from src.global_setting import LLM_PATH
-from accelerate import disk_offload
 
 
 def get_llm_agent(device='cpu'):

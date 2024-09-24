@@ -4,11 +4,8 @@ from src.ingest.ingest import data_retriever
 from src.agents.llm_agent import get_llm_agent
 from src.agents.query_classifier import get_query_classifier, query_classification
 from src.agents.conversation_chain import ChatbotChain
-# from langchain_community.embeddings import HuggingFaceEmbeddings
-# # from langchain_huggingface import HuggingFaceEmbeddings
-# from sentence_transformers import SentenceTransformer
-# from langchain_community.cross_encoders import HuggingFaceCrossEncoder
-
+import torch
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 retriever = data_retriever()
 
@@ -21,21 +18,15 @@ rag_prompt = PromptTemplate(
     input_variables=["chat_history", "question", "context"],
     template=RAG_PROMPT_TEMPLATE
 )
-print('Retriever')
 
-query_classifier = get_query_classifier()
-print(query_classifier)
-print('classifier')
+query_classifier = get_query_classifier(device=device)
 
-llm = get_llm_agent()
-print('LLM')
+llm = get_llm_agent(device=device)
 
 conversation_chain = ChatbotChain(llm=llm, rag_prompt=rag_prompt, general_prompt=general_prompt,
                                   compression_retriever=retriever, query_classifier=query_classifier)
 
 query = 'Give me 3 communities about Data'
-print(query_classification(query=query, classifier=query_classifier))
-print('Query:', query)
 chat_history = [
     {
         'question': 'Hello',
